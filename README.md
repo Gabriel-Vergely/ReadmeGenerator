@@ -1,35 +1,73 @@
-# README Generator
+# README
 
-Este proyecto consiste en un generador de README profesional a partir de una descripción de proyecto. Al ejecutar `main.py`, se pueden pasar diferentes argumentos para personalizar la generación del README.
+---
+
+## Descripción del Proyecto
+
+El proyecto consiste en la ejecución de un script `main.py` el cual permite generar un README estructurado a partir de un archivo de texto o de un contenido definido directamente. Al ejecutar el script, se pueden pasar los siguientes parámetros:
+
+- `-f "prompt.txt"` para indicar un archivo de texto con el contenido a utilizar.
+- `-c "contenido del readme mal estructurado"` para definir el contenido directamente en la línea de comandos.
+- Opcional: `-o "../README.md"` para especificar la ubicación del archivo de salida.
+- Opcional: `-m "openai"` o `-m "zephyr"` para seleccionar el modelo a utilizar (por defecto se utiliza el modelo de OpenAI).
+
+El script utiliza la API de OpenAI para generar el contenido del README. El contexto proporcionado a la API es:
+
+"Eres un creador de README profesional. Cuando se te pase la descripción del proyecto, devolverás un README estructurado, definido, profesional y con buen diseño."
+
+La estructura del proyecto es la siguiente:
+
+```
+project
+│   main.py
+│
+└───services
+│   │   readme_generator.py
+│   
+└───api
+    │   openai_api.py
+```
+
+Para que el proyecto funcione correctamente, es necesario definir la API propia del modelo a utilizar en un archivo `.env` o directamente en el script.
+
+El proyecto está bajo una licencia de uso libre y el autor es Gabriel Vergely Fernández.
+
+---
 
 ## Instalación
-1. Clonar este repositorio
-2. Instalar las dependencias con `pip install -r requirements.txt`
+
+Para instalar las dependencias del proyecto, ejecuta el siguiente comando:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
 
 ## Uso
+
+Para generar un README, ejecuta el script `main.py` con los parámetros adecuados:
+
 ```bash
-main.py -f prompt.txt
-main.py -c "contenido del README mal estructurado"
-main.py -o "../README.md"
-main.py -m openai
-main.py -m zephyr
+python main.py -f "prompt.txt" -o "../README.md"
 ```
 
-## Estructura del Proyecto
-El proyecto está estructurado de la siguiente manera:
-- `main.py`: Archivo principal para ejecutar el generador de README.
-- `services/`: Carpeta que contiene los servicios del generador.
-  - `readme_generator.py`: Archivo que se encarga de generar el README.
-- `api/`: Carpeta que contiene los archivos relacionados con las APIs.
-  - `openai_api.py`: Archivo para interactuar con la API de OpenAI.
+ó
 
-## Configuración de la API
-Para que el proyecto funcione correctamente, es necesario definir la API de OpenAI en un archivo `.env` con las siguientes variables:
-```
-OPENAI_API_KEY=your_api_key
+```bash
+python main.py -c "contenido del readme mal estructurado" -m "zephyr"
 ```
 
-## Resultado
-Al ejecutar el generador de README con la descripción proporcionada, se obtendrá un README estructurado, definido, profesional y con buen diseño.
+---
 
-¡Gracias por utilizar nuestro README Generator!
+## Licencia
+
+Este proyecto se encuentra bajo la Licencia MIT. Para más información, revisa el archivo [LICENSE](LICENSE).
+
+---
+
+## Autor
+
+Gabriel Vergely Fernández
+
+---
