@@ -1,27 +1,33 @@
-# Proyecto README Automático
+# Proyecto README Generator
 
-Este proyecto tiene como objetivo generar un README.md estructurado, definido, profesional y con buen diseño a partir de una descripción de proyecto dada.
+Este proyecto tiene como objetivo principal generar un archivo README.md de manera automática a partir de la información proporcionada. Al ejecutar el script `main.py`, se pueden utilizar diferentes opciones para definir el contenido de salida y el archivo de destino.
 
-## Ejecución
+## Uso
 
-Para generar un README automáticamente, puedes utilizar los siguientes comandos:
+Para ejecutar el script y generar el README, se pueden utilizar las siguientes opciones:
 
-- `main.py -f prompt.txt`: Genera un README basado en el contenido de `prompt.txt`.
-- `main.py -c "contenido del readme mal estructurado"`: Genera un README corrigiendo la estructura del contenido proporcionado.
+- `-f prompt.txt`: Genera el contenido del README utilizando un archivo de texto como prompt.
+- `-c "contenido del readme mal estructurado"`: Genera el contenido del README a partir de un texto proporcionado directamente en la terminal.
+- `-o "../README.md"`: Define la ubicación y nombre del archivo de salida.
 
-## Estructura de carpetas
+## Estructura del Proyecto
 
-El proyecto está organizado de la siguiente manera:
+El proyecto está estructurado de la siguiente manera:
 
-- `main.py`: Archivo principal para ejecutar la generación del README.
-- `services/`: Carpeta que contiene los servicios del proyecto.
-- `api/`: Carpeta que incluye los archivos relacionados con la API.
-- `services/readme_generator.py`: Archivo que se encarga de generar el README.
-- `api/openai_api.py`: Archivo que define la integración con la API de OpenAI.
+- `main.py`: Archivo principal que controla la generación del README.
+- `services/`: Directorio que contiene los servicios relacionados con la generación del README.
+  - `readme_generator.py`: Módulo encargado de generar el contenido del README.
+- `api/`: Directorio que contiene los archivos relacionados con la API.
+  - `openai_api.py`: Módulo que se encarga de interactuar con la API de OpenAI.
 
 ## Configuración
 
-Para que el proyecto funcione correctamente, se debe definir la API propia de OpenAI en un archivo `.env` o directamente en el código.
+Para que el proyecto funcione correctamente, es necesario definir la API propia de OpenAI en un archivo `.env` o directamente en el código, según se prefiera.
+
+## Información Adicional
+
+Este proyecto utiliza la API de OpenAI para generar contenido de manera automatizada. La estructura del README generado sigue un formato definido, con el objetivo de ofrecer un resultado profesional y bien diseñado.
 
 ---
-Este README fue generado automáticamente. ¡Gracias por utilizar nuestro servicio!
+
+¡Gracias por utilizar el Proyecto README Generator! Esperamos que esta herramienta sea de utilidad para simplificar la creación de READMEs estructurados y profesionales.
