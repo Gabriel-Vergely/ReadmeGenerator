@@ -1,14 +1,19 @@
 import argparse
+import os
+from dotenv import load_dotenv
 from services.readme_generator import generate_readme
 
 def main():
-    parser = argparse.ArgumentParser(description="Generador de README usando OpenAI")
+    load_dotenv()  # Carga variables de entorno desde .env
+
+    parser = argparse.ArgumentParser(description="Generador de README usando OpenAI o Mistral")
 
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("-f", "--file", help="Archivo de texto con el prompt")
-    group.add_argument("-c", "--content", help="Contenido del readme mal estructurado")
+    group.add_argument("-c", "--content", help="Contenido del README mal estructurado")
 
     parser.add_argument("-o", "--output", default="README.md", help="Ruta donde se guardará el README generado")
+    parser.add_argument("-m", "--model", default="openai", choices=["openai", "zephyr"], help="Modelo a utilizar: openai o zephyr")
 
     args = parser.parse_args()
 
@@ -18,11 +23,11 @@ def main():
     else:
         content = args.content
 
-    readme_text = generate_readme(content)
+    readme = generate_readme(content, model=args.model)
 
     with open(args.output, "w") as f:
-        f.write(readme_text)
-    print(f"README guardado en {args.output}")
+        f.write(readme)
+    print(f"\n✅ README generado y guardado en: {args.output}")
 
 if __name__ == "__main__":
     main()
